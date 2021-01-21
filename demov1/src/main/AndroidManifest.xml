@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zzt.demov1">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.yazhi1992.practice.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.yazhi1992.practice.eleme_button.ElemeBtnActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.rotate_circle.RotateCircleActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.wave_view.WaveViewActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.vertical_text.VerticalTextActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.bezier_anim.BezierAnimActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.ripple_view.RippleActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.line_chart_view.LineChartActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.wheel_view.WheelViewActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.hook_icon.HookIconActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.immersion_status_bar.MainImmersionActivity"></activity>
+        <activity
+            android:name="com.yazhi1992.practice.immersion_status_bar.ImmersionImageActivity"
+            android:theme="@style/NoActionBarTheme"></activity>
+        <activity
+            android:name="com.yazhi1992.practice.immersion_status_bar.ImmersionBarActivity"
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name="com.yazhi1992.practice.immersion_status_bar.ImmersionNavActivity"
+            android:label="@string/title_activity_immersion_nav"
+            android:theme="@style/NoActionBarTheme"></activity>
+        <activity
+            android:name="com.yazhi1992.practice.immersion_status_bar.ImmersionActionBarActivity"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name="com.yazhi1992.practice.annnotation.TestAnnotationActivity"></activity>
+        <activity
+            android:name="com.yazhi1992.practice.question_button.SizeActivity"
+            android:theme="@style/NoActionBarTheme"></activity>
+        <activity android:name="com.yazhi1992.practice.question_button.QuestionActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.question_button.OnTouchActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.arthmetic_practive.ArthmeticActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.hencoder.ViwOneActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.hencoder.HenCoder"></activity>
+        <activity android:name="com.yazhi1992.practice.flowlayout.FlowLayoutActivity"></activity>
+        <activity android:name="com.yazhi1992.practice.swipelayout.SwipeLayoutActivity"></activity>
+    </application>
+
+</manifest>
