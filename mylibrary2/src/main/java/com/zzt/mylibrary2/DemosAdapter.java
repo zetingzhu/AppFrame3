@@ -65,7 +65,11 @@ public class DemosAdapter extends RecyclerView.Adapter<DemosAdapter.ViewHolder> 
             super(itemView);
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
-            itemView.setOnClickListener(v -> itemView.getContext().startActivity(new Intent(itemView.getContext(), activity)));
+            itemView.setOnClickListener(v -> {
+                if (activity != null) {
+                    itemView.getContext().startActivity(new Intent(itemView.getContext(), activity));
+                }
+            });
         }
     }
 

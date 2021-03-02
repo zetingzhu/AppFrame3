@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zzt.canvasconfettisample">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.NoActionBar">
+
+        <activity android:name="com.github.jinatonic.confetti.sample.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.github.jinatonic.confetti.sample.FallingConfettiFromTopActivity"
+            android:parentActivityName="com.github.jinatonic.confetti.sample.MainActivity" />
+        <activity
+            android:name="com.github.jinatonic.confetti.sample.FallingConfettiFromPointActivity"
+            android:parentActivityName="com.github.jinatonic.confetti.sample.MainActivity" />
+        <activity
+            android:name="com.github.jinatonic.confetti.sample.ExplosionActivity"
+            android:parentActivityName="com.github.jinatonic.confetti.sample.MainActivity" />
+        <activity
+            android:name="com.github.jinatonic.confetti.sample.ShimmeringActivity"
+            android:parentActivityName="com.github.jinatonic.confetti.sample.MainActivity" />
+        <activity
+            android:name="com.github.jinatonic.confetti.sample.FallingWithTouchActivity"
+            android:parentActivityName="com.github.jinatonic.confetti.sample.MainActivity" />
+        <activity
+            android:name="com.github.jinatonic.confetti.sample.FallingConfettiWithListenerActivity"
+            android:parentActivityName="com.github.jinatonic.confetti.sample.MainActivity" />
+    </application>
+
+</manifest>

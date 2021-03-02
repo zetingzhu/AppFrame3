@@ -1,0 +1,6 @@
+[submodule "AddZZTLib/ZZTUtilCode"]
+	path = AddZZTLib/ZZTUtilCode
+	url = https://github.com/zetingzhu/ZZTUtilCode.git
+[submodule "ZZTUtilCode"]
+	path = ZZTUtilCode
+	url = https://github.com/zetingzhu/ZZTUtilCode.git

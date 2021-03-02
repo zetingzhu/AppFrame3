@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.zzt.mylibrary2.ActDemo
 import com.zzt.mylibrary2.DemosAdapter
+//import com.zzt.mylibrary2.ActDemo
+//import com.zzt.mylibrary2.DemosAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.LinkedHashMap
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         //i代表元素的索引值从0开始
 
         val demoList: Array<ActDemo> = arrayOf<ActDemo>(
-            ActDemo("Messenger 多进程通信", "Messenger 使用", ActivityAutoButton::class.java)
+            ActDemo("Messenger 多进程通信", "Messenger 使用", null)
         )
         DemosAdapter.setAdapterData(rv_list, demoList)
 

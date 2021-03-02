@@ -5,16 +5,23 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="testRunner" value="PLATFORM" />
+        <option name="disableWrapperSourceDistributionNotification" value="true" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CanvasConfettiSample" />
+            <option value="$PROJECT_DIR$/EmojiCompatSample" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/contactutilssemple" />
             <option value="$PROJECT_DIR$/demov1" />
+            <option value="$PROJECT_DIR$/floatlayoutsample" />
             <option value="$PROJECT_DIR$/mylibrary2" />
+            <option value="$PROJECT_DIR$/mywebtest" />
             <option value="$PROJECT_DIR$/simpleapk" />
+            <option value="$PROJECT_DIR$/startactivity" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
