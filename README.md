@@ -16,3 +16,5 @@ Emoji 使用
 CanvasConfettiSample
 五彩纸屑，炸出纸屑烟花
 
+myviewpager
+ViewPager2 使用
