@@ -1,3 +1,5 @@
+include ':viewautosizelayout'
+include ':SignatureView'
 include ':myviewpager'
 include ':CanvasConfettiSample'
 include ':EmojiCompatSample'

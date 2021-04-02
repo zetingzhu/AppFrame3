@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/CanvasConfettiSample" />
             <option value="$PROJECT_DIR$/EmojiCompatSample" />
+            <option value="$PROJECT_DIR$/SignatureView" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/contactutilssemple" />
             <option value="$PROJECT_DIR$/demov1" />
@@ -23,6 +24,7 @@
             <option value="$PROJECT_DIR$/mywebtest" />
             <option value="$PROJECT_DIR$/simpleapk" />
             <option value="$PROJECT_DIR$/startactivity" />
+            <option value="$PROJECT_DIR$/viewautosizelayout" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

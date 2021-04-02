@@ -5,6 +5,8 @@ buildscript {
         maven {
             url "https://dl.bintray.com/zhuzeting/zzt"
         }
+
+        maven { url 'https://jitpack.io' }
         google()
         jcenter()
     }
@@ -22,6 +24,8 @@ allprojects {
         maven {
             url "https://dl.bintray.com/zhuzeting/zzt"
         }
+
+        maven { url 'https://jitpack.io' }
         google()
         jcenter()
     }
