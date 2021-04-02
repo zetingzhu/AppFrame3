@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+    defaultConfig {
+        applicationId "com.example.viewautosizelayout"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //ARouter添加
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // 多渠道资源文件修改
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api 'androidx.appcompat:appcompat:1.2.0'
+    api "androidx.constraintlayout:constraintlayout:2.0.4"
+
+    api 'androidx.viewpager2:viewpager2:1.0.0'
+    api "com.google.android.material:material:1.2.1"
+//    implementation project(path: ':CommonModule')
+//    implementation project(path: ':zztToolsLibrary')
+    //ARouter添加
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    // android 适配 AndroidAutoSize
+    implementation 'me.jessyan:autosize:1.2.1'
+
+
+    implementation 'me.yatoooon:screenadaptation:1.1.1'
+
+
+    implementation 'com.github.zetingzhu:ZZTUtilCode:1.1.2'
+}
