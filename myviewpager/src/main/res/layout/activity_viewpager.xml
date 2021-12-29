@@ -121,6 +121,12 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <com.zzt.myviewpager.util.CircleIndicator
+        android:id="@+id/ci_view"
+        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager2"
         android:layout_width="match_parent"

@@ -19,6 +19,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.zzt.myviewpager.util.CircleIndicator;
+import com.zzt.myviewpager.util.ViewpagerIndicatorManager;
 import com.zzt.viewpager2.R;
 
 
@@ -31,13 +33,14 @@ public class ActivityViewPager extends BaseActivityViewPager {
     private final static String TAG = ActivityViewPager.class.getSimpleName();
     ViewPager2 viewPager2;
     ViewPager viewPager1;
+    CircleIndicator ci_view;
 
     RecyclerView recycleview;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ci_view = findViewById(R.id.ci_view);
 
         initviewViewpager1();
         initviewViewpager2();
@@ -53,6 +56,9 @@ public class ActivityViewPager extends BaseActivityViewPager {
             }
         });
         tabLayoutMediator.attach();
+
+        ViewpagerIndicatorManager manager = new ViewpagerIndicatorManager(viewPager2, ci_view);
+        manager.attach();
 
         // 动画和方向
         findViewById(R.id.btn_skip).setVisibility(View.VISIBLE);
