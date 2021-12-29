@@ -1,6 +1,11 @@
 package com.zzt.myviewpager.util;
 
+import android.content.Context;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -22,6 +27,10 @@ public class ViewpagerIndicatorManager {
     }
 
     public void attach() {
+        if (mViewPager2 == null || mIndicator == null) {
+            throw new IllegalStateException(
+                    "indicator or ViewPager2 Can not be empty");
+        }
         mAdapter = mViewPager2.getAdapter();
         if (mAdapter == null) {
             throw new IllegalStateException(
@@ -30,6 +39,7 @@ public class ViewpagerIndicatorManager {
         mPageChangeCallback = new BannerOnPageChangeCallback();
         mViewPager2.registerOnPageChangeCallback(mPageChangeCallback);
         setIndicatorPageChange();
+        getAdapter().registerAdapterDataObserver(mAdapterDataObserver);
     }
 
     public Indicator getIndicator() {
@@ -40,12 +50,23 @@ public class ViewpagerIndicatorManager {
         return mViewPager2;
     }
 
+    public Context getContext() {
+        return mViewPager2.getContext();
+    }
+
     public int getCurrentItem() {
         return getViewPager2().getCurrentItem();
     }
 
     public RecyclerView.Adapter<?> getAdapter() {
         return mAdapter;
+    }
+
+    public IndicatorConfig getIndicatorConfig() {
+        if (getIndicator() != null) {
+            return getIndicator().getIndicatorConfig();
+        }
+        return null;
     }
 
     public int getRealCount() {
@@ -62,6 +83,80 @@ public class ViewpagerIndicatorManager {
         }
     }
 
+    public void setIndicatorSelectedColor(@ColorInt int color) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setSelectedColor(color);
+        }
+    }
+
+    public void setIndicatorSelectedColorRes(@ColorRes int color) {
+        setIndicatorSelectedColor(ContextCompat.getColor(getContext(), color));
+    }
+
+    public void setIndicatorNormalColor(@ColorInt int color) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setNormalColor(color);
+        }
+    }
+
+    public void setIndicatorNormalColorRes(@ColorRes int color) {
+        setIndicatorNormalColor(ContextCompat.getColor(getContext(), color));
+    }
+
+    public void setIndicatorGravity(@IndicatorConfig.Direction int gravity) {
+        if (getIndicatorConfig() != null && getIndicatorConfig().isAttachToBanner()) {
+            getIndicatorConfig().setGravity(gravity);
+            getIndicator().getIndicatorView().postInvalidate();
+        }
+    }
+
+    public void setIndicatorSpace(int indicatorSpace) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setIndicatorSpace(indicatorSpace);
+        }
+    }
+
+    public void setIndicatorMargins(IndicatorConfig.Margins margins) {
+        if (getIndicatorConfig() != null && getIndicatorConfig().isAttachToBanner()) {
+            getIndicatorConfig().setMargins(margins);
+            getIndicator().getIndicatorView().requestLayout();
+        }
+    }
+
+    public void setIndicatorWidth(int normalWidth, int selectedWidth) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setNormalWidth(normalWidth);
+            getIndicatorConfig().setSelectedWidth(selectedWidth);
+        }
+    }
+
+    public void setIndicatorNormalWidth(int normalWidth) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setNormalWidth(normalWidth);
+        }
+    }
+
+    public void setIndicatorSelectedWidth(int selectedWidth) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setSelectedWidth(selectedWidth);
+        }
+    }
+
+    public void setIndicatorRadius(int indicatorRadius) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setRadius(indicatorRadius);
+        }
+    }
+
+    public void setIndicatorHeight(int indicatorHeight) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setHeight(indicatorHeight);
+        }
+    }
+
+    /**
+     * viewpager2 切换监听
+     */
     class BannerOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
         private int mTempPosition = INVALID_VALUE;
         private boolean isScrolled;
@@ -99,5 +194,39 @@ public class ViewpagerIndicatorManager {
 
     }
 
+    /**
+     * 监听viewpager2 变化
+     */
+    private final RecyclerView.AdapterDataObserver mAdapterDataObserver = new RecyclerView.AdapterDataObserver() {
+        @Override
+        public void onChanged() {
+            setIndicatorPageChange();
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount) {
+            setIndicatorPageChange();
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount, @Nullable Object payload) {
+            setIndicatorPageChange();
+        }
+
+        @Override
+        public void onItemRangeInserted(int positionStart, int itemCount) {
+            setIndicatorPageChange();
+        }
+
+        @Override
+        public void onItemRangeRemoved(int positionStart, int itemCount) {
+            setIndicatorPageChange();
+        }
+
+        @Override
+        public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+            setIndicatorPageChange();
+        }
+    };
 
 }
