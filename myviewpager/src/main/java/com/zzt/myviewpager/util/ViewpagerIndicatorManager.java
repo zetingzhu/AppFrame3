@@ -13,7 +13,6 @@ import androidx.viewpager2.widget.ViewPager2;
  * Viewpager2 和 indicator 管理器
  */
 public class ViewpagerIndicatorManager {
-    public static final int INVALID_VALUE = -1;
     ViewPager2 mViewPager2;
     CircleIndicator mIndicator;
     @Nullable
@@ -42,7 +41,7 @@ public class ViewpagerIndicatorManager {
         getAdapter().registerAdapterDataObserver(mAdapterDataObserver);
     }
 
-    public Indicator getIndicator() {
+    public IndicatorListener getIndicator() {
         return mIndicator;
     }
 
@@ -103,23 +102,9 @@ public class ViewpagerIndicatorManager {
         setIndicatorNormalColor(ContextCompat.getColor(getContext(), color));
     }
 
-    public void setIndicatorGravity(@IndicatorConfig.Direction int gravity) {
-        if (getIndicatorConfig() != null && getIndicatorConfig().isAttachToBanner()) {
-            getIndicatorConfig().setGravity(gravity);
-            getIndicator().getIndicatorView().postInvalidate();
-        }
-    }
-
     public void setIndicatorSpace(int indicatorSpace) {
         if (getIndicatorConfig() != null) {
             getIndicatorConfig().setIndicatorSpace(indicatorSpace);
-        }
-    }
-
-    public void setIndicatorMargins(IndicatorConfig.Margins margins) {
-        if (getIndicatorConfig() != null && getIndicatorConfig().isAttachToBanner()) {
-            getIndicatorConfig().setMargins(margins);
-            getIndicator().getIndicatorView().requestLayout();
         }
     }
 
@@ -142,23 +127,10 @@ public class ViewpagerIndicatorManager {
         }
     }
 
-    public void setIndicatorRadius(int indicatorRadius) {
-        if (getIndicatorConfig() != null) {
-            getIndicatorConfig().setRadius(indicatorRadius);
-        }
-    }
-
-    public void setIndicatorHeight(int indicatorHeight) {
-        if (getIndicatorConfig() != null) {
-            getIndicatorConfig().setHeight(indicatorHeight);
-        }
-    }
-
     /**
      * viewpager2 切换监听
      */
     class BannerOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
-        private int mTempPosition = INVALID_VALUE;
         private boolean isScrolled;
 
         @Override
@@ -186,12 +158,7 @@ public class ViewpagerIndicatorManager {
                 //滑动闲置或滑动结束
                 isScrolled = false;
             }
-
-            if (getIndicator() != null) {
-                getIndicator().onPageScrollStateChanged(state);
-            }
         }
-
     }
 
     /**

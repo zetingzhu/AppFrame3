@@ -20,6 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.zzt.myviewpager.util.CircleIndicator;
+import com.zzt.myviewpager.util.IndicatorConfig;
 import com.zzt.myviewpager.util.ViewpagerIndicatorManager;
 import com.zzt.viewpager2.R;
 

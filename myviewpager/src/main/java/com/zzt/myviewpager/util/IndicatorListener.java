@@ -1,10 +1,14 @@
 package com.zzt.myviewpager.util;
 
 import androidx.annotation.Px;
-import androidx.viewpager2.widget.ViewPager2;
 
 
-public interface OnPageChangeListener {
+public interface IndicatorListener {
+
+    IndicatorConfig getIndicatorConfig();
+
+    void onPageChanged(int count, int currentPosition);
+
     /**
      * This method will be invoked when the current page is scrolled, either as part
      * of a programmatically initiated smooth scroll or a user initiated touch scroll.
@@ -23,14 +27,4 @@ public interface OnPageChangeListener {
      * @param position Position index of the new selected page.
      */
     void onPageSelected(int position);
-
-    /**
-     * Called when the scroll state changes. Useful for discovering when the user begins
-     * dragging, when a fake drag is started, when the pager is automatically settling to the
-     * current page, or when it is fully stopped/idle. {@code state} can be one of
-     * {@link ViewPager2.SCROLL_STATE_IDLE},
-     * {@link ViewPager2.SCROLL_STATE_DRAGGING},
-     * {@link ViewPager2.SCROLL_STATE_SETTLING}.
-     */
-    void onPageScrollStateChanged(@ViewPager2.ScrollState int state);
 }

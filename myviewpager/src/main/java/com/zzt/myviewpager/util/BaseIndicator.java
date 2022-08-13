@@ -4,15 +4,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class BaseIndicator extends View implements Indicator {
+public class BaseIndicator extends View implements IndicatorListener {
     protected IndicatorConfig config;
     protected Paint mPaint;
     protected float offset;
@@ -32,32 +28,6 @@ public class BaseIndicator extends View implements Indicator {
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.TRANSPARENT);
         mPaint.setColor(config.getNormalColor());
-    }
-
-    @NonNull
-    @Override
-    public View getIndicatorView() {
-        if (config.isAttachToBanner()) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            switch (config.getGravity()) {
-                case IndicatorConfig.Direction.LEFT:
-                    layoutParams.gravity = Gravity.BOTTOM | Gravity.START;
-                    break;
-                case IndicatorConfig.Direction.CENTER:
-                    layoutParams.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-                    break;
-                case IndicatorConfig.Direction.RIGHT:
-                    layoutParams.gravity = Gravity.BOTTOM | Gravity.END;
-                    break;
-            }
-            layoutParams.leftMargin = config.getMargins().leftMargin;
-            layoutParams.rightMargin = config.getMargins().rightMargin;
-            layoutParams.topMargin = config.getMargins().topMargin;
-            layoutParams.bottomMargin = config.getMargins().bottomMargin;
-            setLayoutParams(layoutParams);
-        }
-        return this;
     }
 
     @Override
@@ -85,8 +55,4 @@ public class BaseIndicator extends View implements Indicator {
         invalidate();
     }
 
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
 }
