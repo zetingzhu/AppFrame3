@@ -102,7 +102,14 @@
                 android:id="@+id/btn_nested_sliding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="嵌套滑动"
+                android:text="Rv 嵌套 Vp2 滑动"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_vp_to_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vp2 嵌套 Rv 滑动"
                 android:textAllCaps="false" />
 
         </LinearLayout>

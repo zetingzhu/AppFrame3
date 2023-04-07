@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name="com.zzt.myviewpager.ActivityVp2ToRv"
+            android:exported="true" />
+        <activity
             android:name="com.zzt.myviewpager.ActivityNestedSliding"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name="com.zzt.myviewpager.ActivityViewPager">

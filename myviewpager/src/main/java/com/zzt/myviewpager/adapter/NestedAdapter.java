@@ -45,7 +45,7 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.MyHolder> 
             holder.tv_nested_vp2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
             vp2Adapter = new NestedVP2Adapter(Arrays.asList(mList.get(position)), "这个是垂直");
         }
-        holder.vp2_container.disallowParentInterceptDownEvent(false);
+//        holder.vp2_container.disallowParentInterceptDownEvent(false);
         holder.tv_nested_vp2.setAdapter(vp2Adapter);
     }
 
@@ -57,13 +57,13 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.MyHolder> 
     class MyHolder extends RecyclerView.ViewHolder {
         TextView tv_nested_name;
         ViewPager2 tv_nested_vp2;
-        ViewPager2Container vp2_container;
+//        ViewPager2Container vp2_container;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             tv_nested_name = itemView.findViewById(R.id.tv_nested_name);
             tv_nested_vp2 = itemView.findViewById(R.id.tv_nested_vp2);
-            vp2_container = itemView.findViewById(R.id.vp2_container);
+//            vp2_container = itemView.findViewById(R.id.vp2_container);
         }
     }
 }

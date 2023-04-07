@@ -92,7 +92,14 @@ public class ActivityViewPager extends BaseActivityViewPager {
         findViewById(R.id.btn_nested_sliding).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ActivityViewPager.this, ActivityNestedSliding.class));
+                ActivityNestedSliding.start(ActivityViewPager.this);
+            }
+        });
+
+        findViewById(R.id.btn_vp_to_rv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityVp2ToRv.start(ActivityViewPager.this);
             }
         });
 
